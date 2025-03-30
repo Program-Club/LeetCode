@@ -45,3 +45,19 @@
 #     return reversed_num if -2**31 <= reversed_num <= 2**31 - 1 else 0
 
 # print(reverse(120))
+
+# Method 4 ✅
+
+def reverse(x):
+    sign = 1 if x >= 0 else -1
+    x = abs(x)
+    
+    reversed_num = 0
+    while x:
+        reversed_num = (reversed_num << 3) + (reversed_num << 1) + x % 10
+        x //= 10
+    
+    reversed_num *= sign
+    return reversed_num if -2**31 <= reversed_num <= 2**31 - 1 else 0
+
+print(reverse(120))
